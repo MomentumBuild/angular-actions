@@ -48,3 +48,10 @@ angular.module('actionExample', ['momentum.actions'])
 </actions-form>
 ```
 
+<h3>API's:</h3>
+<p><a href="https://github.com/paulstefanday/Momentum/blob/master/api/models/Submission.js">Form field model options</a></p>
+<p><a href="https://github.com/MomentumBuild/angular-actions/blob/master/src/module/app/directives/feed.js">Feed directive example (use templateUrl instead of transclusion)</a></p>
+<p><a href="https://github.com/MomentumBuild/angular-actions/blob/master/src/module/app/directives/form.js">Form directive example (use templateUrl instead of transclusion)</a></p>
+<p><a href="https://github.com/MomentumBuild/angular-actions/blob/master/src/module/app/service.js">Angular factory for API endpoints</a></p>
+<p><a href="https://github.com/MomentumBuild/angular-actions/blob/master/src/module/app/controller.js">Angular controller for actions</a></p>
+<p><a href="https://github.com/paulstefanday/Momentum/blob/master/api/models/Action.js">Action model</a></p>
