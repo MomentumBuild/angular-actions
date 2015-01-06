@@ -8,7 +8,7 @@
 <h3>Use (Simple):</h3>
 
 <p>1. bower install momentum-actions --save</p>
-<p>2. Add angular, ngLodash and petition.js as scripts in your html</p>
+<p>2. Add angular, actions.js (and actions-tpl.js if you want to use example templates) as scripts in your html</p>
 ```
 <script src="bower_components/angular/angular.min.js"></script>
 <script src="bower_components/dist/actions.min.js"></script>
