@@ -1,0 +1,4 @@
+.actionItem(ng-repeat="a in Feed.actions | orderBy:'-createdAt'")
+	p <b>{{ a.first_name }} said</b> {{ a.message}}
+		small.clearfix at {{ a.createdAt | date : 'medium' }}
+

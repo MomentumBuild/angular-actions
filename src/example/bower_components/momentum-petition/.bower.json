@@ -1,0 +1,37 @@
+{
+  "name": "momentum-petition",
+  "version": "0.0.2",
+  "homepage": "https://github.com/MomentumBuild/petition",
+  "authors": [
+    "Paul Day <paul@paulday.com.au>"
+  ],
+  "description": "Angular module for petitions using Momentum.build",
+  "main": "petition.js",
+  "keywords": [
+    "campaigning",
+    "petition",
+    "momentum"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "*",
+    "ng-lodash": "~0.1.0",
+    "bootstrap": "~3.3.1"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.2",
+    "commit": "92e424a659402cb18ce97bc42d7fc16baa82e7da"
+  },
+  "_source": "git://github.com/MomentumBuild/petition.git",
+  "_target": "*",
+  "_originalSource": "momentum-petition"
+}

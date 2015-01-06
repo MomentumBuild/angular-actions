@@ -1,0 +1,4 @@
+.petitionItem(ng-repeat="petition in pc.petitions | orderBy:'-createdAt'")
+	p <b>{{ petition.first_name }} said</b> {{ petition.message}}
+		small.clearfix at {{ petition.createdAt | date : 'medium' }}
+

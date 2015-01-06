@@ -1,0 +1,22 @@
+{
+  "name": "Petition Example",
+  "version": "0.0.0",
+  "homepage": "https://github.com/paulstefanday/",
+  "authors": [
+    "Paul Day <paul@chuffed.prg>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "*",
+    "ng-lodash": "~0.1.0",
+    "bootstrap": "~3.3.1"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

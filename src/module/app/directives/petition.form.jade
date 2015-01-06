@@ -1,0 +1,6 @@
+form#actionForm(ng-submit="Form.create()")
+	.form-group
+		input.form-control(type="text" ng-model="Form.newAction.first_name" ng-required="true" placeholder="First Name")
+	.form-group
+		textarea.form-control(ng-model="Form.newAction.message" ng-required="true" placeholder="Message")
+	button.btn.btn-success.btn-block.btn-lg Sign Action
