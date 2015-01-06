@@ -15,24 +15,10 @@
           <div class="col-sm-5">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <hr>
-            <actions-feed campaign-id="48" action-id="42" action="petition">
-              <div data-ng-repeat="a in Feed.actions | orderBy:'-createdAt'" class="actionItem">
-                <p><b>{{ a.first_name }} said</b> {{ a.message}}<small class="clearfix">at {{ a.createdAt | date : 'medium' }}</small></p>
-              </div>
-            </actions-feed>
+            <example-feed campaign-id="48" action-id="42" action="petition"></example-feed>
           </div>
           <div class="col-sm-7">
-            <actions-form campaign-id="48" action-id="42" action="petition"> 
-              <form id="actionForm" data-ng-submit="Form.create()">
-                <div class="form-group">
-                  <input type="text" data-ng-model="Form.newAction.first_name" data-ng-required="true" placeholder="First Name" class="form-control">
-                </div>
-                <div class="form-group">
-                  <textarea data-ng-model="Form.newAction.message" data-ng-required="true" placeholder="Message" class="form-control"></textarea>
-                </div>
-                <button class="btn btn-success btn-block btn-lg">Sign Action</button>
-              </form>
-            </actions-form>
+            <example-form campaign-id="48" action-id="42" action="petition"> </example-form>
           </div>
         </div>
       </div>

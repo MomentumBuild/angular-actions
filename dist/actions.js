@@ -1,12 +1,12 @@
 angular
-  .module('momentum.actions', ['ngLodash']);
+  .module('momentum.actions', []);
 angular
   .module('momentum.actions')
   .controller('actionsCtrl', actionsCtrl);
 
-actionsCtrl.$inject = ['$scope', 'Action', 'lodash', '$rootScope'];
+actionsCtrl.$inject = ['$scope', 'Action', '$rootScope'];
   
-function actionsCtrl( $scope, Action, lodash, $rootScope ) {
+function actionsCtrl( $scope, Action, $rootScope ) {
     
     var vm = this;
 
@@ -75,11 +75,66 @@ function Action($http) {
 }
 angular
     .module('momentum.actions')
+    .directive('exampleFeed', exampleFeed);
+
+function exampleFeed() {
+   
+  return {
+    restrict: 'E',
+    bindToController: true,
+    controller : 'actionsCtrl as Feed',
+    scope: {
+      campaignId: "@",
+      actionId: "@",
+      action: "@",
+    },  
+    link: link,
+    template: '<div ng-include="Feed.url"></div>'
+  };
+
+  function link(scope, element, attr, ctrl) {
+    ctrl.url = '/directives/' + attr.action + '.feed.html';
+    ctrl.newAction = {};
+    ctrl.actions = [];
+    ctrl.feed();  
+  
+    // Listern for new actions and add to records
+    scope.$on('newAction', function(event, data) { 
+      ctrl.actions.push(data);
+    });
+  }
+
+}
+angular
+    .module('momentum.actions')
+    .directive('exampleForm', exampleForm);
+
+function exampleForm() {
+   
+  return {
+    restrict: 'E',
+    bindToController: true,
+    controller : 'actionsCtrl as Form',
+    scope: {
+      actionId: "@",
+      action: "@",
+      template: "@"
+    }, 
+    link: link,
+    template: '<div ng-include="Form.url"></div>'
+  };
+
+  function link(scope, element, attr, ctrl) {
+    ctrl.url = '/directives/' + attr.action + '.form.html';
+    ctrl.newAction = {};
+  }
+
+}
+angular
+    .module('momentum.actions')
     .directive('actionsFeed', actionsFeed);
 
-actionsFeed.$inject = ['$templateCache'];
-
-function actionsFeed($templateCache) {
+function actionsFeed() {
    
   return {
     restrict: 'E',
@@ -100,17 +155,9 @@ function actionsFeed($templateCache) {
     ctrl.actions = [];
     ctrl.feed();
 
-    // if(attr.template === 'true'){
-    //   var template = $templateCache.get('/directives/' + attr.action + '.feed.html');
-    //   var templateElement = angular.element(template);
-    //   transclude(scope, function (clone) {
-    //             element.after(templateElement.append(clone));
-    //   })
-    // } else {
-      transclude(scope, function (clone) {
-                element.after(clone);
-      })
-    // }
+    transclude(scope, function (clone) {
+              element.after(clone);
+    })
 
     // Listern for new actions and add to records
     scope.$on('newAction', function(event, data) { 
@@ -123,15 +170,12 @@ angular
     .module('momentum.actions')
     .directive('actionsForm', actionsForm);
 
-actionsForm.$inject = ['$templateCache', '$compile'];
-
-function actionsForm($templateCache, $compile) {
+function actionsForm() {
    
   return {
     restrict: 'E',
     bindToController: true,
     controller : 'actionsCtrl as Form',
-    // templateUrl: '/directives/petition.form.html',
     transclude: 'element',
     scope: {
       actionId: "@",

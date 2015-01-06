@@ -1,2 +1,2 @@
 angular
-  .module('momentum.actions', ['ngLodash']);
+  .module('momentum.actions', []);

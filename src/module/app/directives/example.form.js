@@ -1,30 +1,25 @@
 angular
     .module('momentum.actions')
-    .directive('actionsForm', actionsForm);
+    .directive('exampleForm', exampleForm);
 
-function actionsForm() {
+function exampleForm() {
    
   return {
     restrict: 'E',
     bindToController: true,
     controller : 'actionsCtrl as Form',
-    transclude: 'element',
     scope: {
       actionId: "@",
       action: "@",
       template: "@"
     }, 
-    link: link
+    link: link,
+    template: '<div ng-include="Form.url"></div>'
   };
 
-  function link(scope, element, attr, ctrl, transclude) {
- 
+  function link(scope, element, attr, ctrl) {
+    ctrl.url = '/directives/' + attr.action + '.form.html';
     ctrl.newAction = {};
-
-    transclude(scope, function (clone) {
-              element.after(clone);
-    })
-
   }
 
 }

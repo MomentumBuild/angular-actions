@@ -1,32 +1,28 @@
 angular
     .module('momentum.actions')
-    .directive('actionsFeed', actionsFeed);
+    .directive('exampleFeed', exampleFeed);
 
-function actionsFeed() {
+function exampleFeed() {
    
   return {
     restrict: 'E',
     bindToController: true,
     controller : 'actionsCtrl as Feed',
-    transclude: 'element',
     scope: {
       campaignId: "@",
       actionId: "@",
       action: "@",
-      template: "@"
     },  
-    link: link
+    link: link,
+    template: '<div ng-include="Feed.url"></div>'
   };
 
-  function link(scope, element, attr, ctrl, transclude) {
+  function link(scope, element, attr, ctrl) {
+    ctrl.url = '/directives/' + attr.action + '.feed.html';
     ctrl.newAction = {};
     ctrl.actions = [];
-    ctrl.feed();
-
-    transclude(scope, function (clone) {
-              element.after(clone);
-    })
-
+    ctrl.feed();  
+  
     // Listern for new actions and add to records
     scope.$on('newAction', function(event, data) { 
       ctrl.actions.push(data);

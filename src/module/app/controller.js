@@ -2,9 +2,9 @@ angular
   .module('momentum.actions')
   .controller('actionsCtrl', actionsCtrl);
 
-actionsCtrl.$inject = ['$scope', 'Action', 'lodash', '$rootScope'];
+actionsCtrl.$inject = ['$scope', 'Action', '$rootScope'];
   
-function actionsCtrl( $scope, Action, lodash, $rootScope ) {
+function actionsCtrl( $scope, Action, $rootScope ) {
     
     var vm = this;
 
