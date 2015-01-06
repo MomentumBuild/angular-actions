@@ -24,9 +24,8 @@ var paths = {
     // 'bower_components/angular-strap/dist/angular-strap.tpl.min.js',
     // 'bower_components/satellizer/satellizer.min.js',
     // 'bower_components/angular-loading-bar/build/loading-bar.min.js',
-    'app.js',
-    'templates.js',
-    'app/**/*.js', 
+    'app/app.js',
+    'app/templates.js',
   ],
   css: [ 
     // 'bower_components/ionicons/css/ionicons.min.css',
@@ -34,8 +33,8 @@ var paths = {
     // 'bower_components/animate.css/animate.min.css',
     'app/**/*.less'
   ],
-  template_index: 'index.jade',
-  templates: 'pages/**/*.jade',
+  template_index: 'app/index.jade',
+  templates: 'app/pages/**/*.jade',
   root: [ '../../example/' , '../../example/', '../../example/fonts/'],
   testing: ['../tests/api/**/*.js'],
   fonts: ['bower_components/ionicons/fonts/*.*']
@@ -71,7 +70,7 @@ gulp.task('templates', function() {
         standalone: false,
         module: "actionExample",
       }))
-    .pipe(gulp.dest(''));
+    .pipe(gulp.dest('app/'));
 });
 
 gulp.task('scripts', function() {

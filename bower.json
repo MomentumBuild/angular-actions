@@ -1,11 +1,11 @@
 {
-  "name": "momentum-petition",
+  "name": "momentum-actions",
   "version": "0.0.1",
-  "homepage": "https://github.com/MomentumBuild/petition",
+  "homepage": "https://github.com/MomentumBuild/angular-actions",
   "authors": [
     "Paul Day <paul@paulday.com.au>"
   ],
-  "description": "Angular module for petitions using Momentum.build",
+  "description": "Angular module for actions such as petitions using Momentum.build",
   "main": "petition.js",
   "keywords": [
     "campaigning",
