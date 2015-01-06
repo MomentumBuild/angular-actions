@@ -6,7 +6,8 @@ Action.$inject = ['$http'];
 
 function Action($http) {
 
-    var root = 'http://localhost:1337';
+    if($location.host().indexOf("localhost") > -1) var root = 'http://localhost:1337';
+    else var root = 'http://www.momentum.build';
 
     return {
       info: info,

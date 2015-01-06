@@ -8,6 +8,21 @@ var less = require('gulp-less');
 var jasmine = require('gulp-jasmine');
 var minifyCSS = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
+var gutil = require('gulp-util');
+
+var vars = {
+  host: 'http://www.momentum.build',
+  testCampaignId: '54A9198B24EB6A0200BD74DB',
+  testActionId: '54AA89BC1FDBE302004ECCC9'
+};
+
+if(gutil.env.dev) {
+  var vars = {
+    host: 'http://www.momentum.build',
+    testCampaignId: 48,
+    testActionId: 42
+  };
+}
 
 var paths = {
   module: [
