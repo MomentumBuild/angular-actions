@@ -6,7 +6,7 @@
     "Paul Day <paul@paulday.com.au>"
   ],
   "description": "Angular module for actions such as petitions using Momentum.build",
-  "main": "petition.js",
+  "main": "dist/actions.js",
   "keywords": [
     "campaigning",
     "petition",
@@ -15,7 +15,6 @@
   "license": "MIT",
   "dependencies": {
     "angular": "*",
-    "ng-lodash": "~0.1.0",
     "bootstrap": "~3.3.1"
   },
   "ignore": [

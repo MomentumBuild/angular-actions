@@ -4,17 +4,17 @@
 
 <h3>Use (Simple):</h3>
 
-<p>1. bower install momentum-petition --save</p>
+<p>1. bower install momentum-actions --save</p>
 <p>2. Add angular, ngLodash and petition.js as scripts in your html</p>
 ```
 <script src="bower_components/angular/angular.min.js"></script>
-<script src="bower_components/ng-lodash/build/ng-lodash.min.js"></script>
-<script src="bower_components/dist/petition.js"></script>
+<script src="bower_components/dist/actions.min.js"></script>
+<script src="bower_components/dist/actions-tpl.min.js"></script>
 ```
 
-<p>3. Add 'momentum.petition' as dependancy to app module.</p>
+<p>3. Add 'momentum.actions' as dependancy to app module.</p>
 ```
-angular.module('actionExample', ['ngAnimate', 'momentum.actions', 'mgcrea.ngStrap', 'ngLodash'])
+angular.module('actionExample', ['momentum.actions'])
 ```
 
 <p>4. call directive with campaign and action id's.</p>
