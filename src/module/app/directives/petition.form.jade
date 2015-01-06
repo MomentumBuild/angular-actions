@@ -1,6 +1,15 @@
 form#actionForm(ng-submit="Form.create()")
 	.form-group
-		input.form-control(type="text" ng-model="Form.newAction.first_name" ng-required="true" placeholder="First Name")
+		.row
+			.col-sm-6
+				input.form-control(type="text" ng-model="Form.newAction.first_name" ng-required="true" placeholder="First Name")
+			.col-sm-6
+				input.form-control(type="text" ng-model="Form.newAction.last_name" ng-required="true" placeholder="Last Name")
 	.form-group
-		textarea.form-control(ng-model="Form.newAction.message" ng-required="true" placeholder="Message")
-	button.btn.btn-success.btn-block.btn-lg Sign Action
+		input.form-control(type="email" ng-model="Form.newAction.email" ng-required="true" placeholder="Email")
+	.form-group
+		input.form-control(type="number" ng-model="Form.newAction.postcode" ng-required="true" placeholder="Postcode")
+	.form-group
+		textarea.form-control(ng-model="Form.newAction.message" ng-required="true" placeholder="Leave them a message!")
+	input(type="hidden" ng-model="Form.newAction.voted" ng-value="true")
+	button.btn.btn-success.btn-block.btn-lg Vote Yes!
