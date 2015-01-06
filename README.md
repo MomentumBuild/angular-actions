@@ -2,6 +2,9 @@
 
 <img src="preview.png" />
 
+<h3>Before starting:</h3>
+<p>Make sure you go to http://www.momentum.build to create your campaigns and actions to use with this module.</p>
+
 <h3>Use (Simple):</h3>
 
 <p>1. bower install momentum-actions --save</p>
