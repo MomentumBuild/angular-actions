@@ -1,13 +1,11 @@
 var gulp = require('gulp');
-var concat = require('gulp-concat');
-var jade = require('gulp-jade');
-var htmlify = require('gulp-angular-htmlify');
-var templateCache = require('gulp-angular-templatecache');
 var path = require('path');
-var less = require('gulp-less');
-var jasmine = require('gulp-jasmine');
-var minifyCSS = require('gulp-minify-css');
-var uglify = require('gulp-uglify');
+var $ = require('gulp-load-plugins')({
+  rename: {
+    'gulp-angular-templatecache': 'templateCache',
+    'gulp-angular-htmlify': 'htmlify'
+  }
+});
 
 var paths = {
   scripts: [
@@ -40,13 +38,20 @@ var paths = {
   fonts: ['bower_components/ionicons/fonts/*.*']
 };
 
+gulp.task('clean', function () {  
+  return gulp.src(paths.root[0], {read: false})
+    .pipe(clean());
+});
+
 gulp.task('less', function () {
   gulp.src(paths.css)
-    .pipe(concat('style.less'))
-    .pipe(less())
-    .pipe(concat('style.css'))
-    .pipe(minifyCSS({keepBreaks:false}))
-    .pipe(gulp.dest(paths.root[1]));
+    .pipe($.concat('style.less'))
+    .pipe($.less())
+    .pipe($.concat('style.css'))
+    .pipe($.minifyCss({keepBreaks:false}))
+    .pipe(gulp.dest(paths.root[1]))
+    .pipe($.filesize())
+    .on('error', $.util.log)
 });
 
 gulp.task('fonts', function () {
@@ -56,16 +61,16 @@ gulp.task('fonts', function () {
 
 gulp.task('template_index', function() {
   gulp.src(paths.template_index)
-    .pipe(jade({ pretty: true}))
-    .pipe(htmlify())
+    .pipe($.jade({ pretty: true}))
+    .pipe($.htmlify())
     .pipe(gulp.dest('../../example/'));
 });
 
 gulp.task('templates', function() {
   gulp.src(paths.templates)
-    .pipe(jade())
-    .pipe(htmlify())
-    .pipe(templateCache({
+    .pipe($.jade())
+    .pipe($.htmlify())
+    .pipe($.templateCache({
         // root: "/partials/",
         standalone: false,
         module: "actionExample",
@@ -75,14 +80,18 @@ gulp.task('templates', function() {
 
 gulp.task('scripts', function() {
   gulp.src(paths.scripts)
-    .pipe(concat('app.js'))
-    // .pipe(uglify({mangle: false}))
+    .pipe($.concat('app.js'))
     .pipe(gulp.dest(paths.root[0]))
+    .pipe($.rename('app.min.js'))
+    .pipe($.uglify({mangle: false}))
+    .pipe(gulp.dest(paths.root[0]))
+    .pipe($.filesize())
+    .on('error', $.util.log)
 });
 
 gulp.task('api-testing', function () {
     return gulp.src(paths.testing[0])
-        .pipe(jasmine());
+        .pipe($.jasmine());
 });
 
 // Rerun the task when a file changes
