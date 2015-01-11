@@ -2,9 +2,9 @@ angular
   .module('momentum.actions')
   .factory('Action', Action);
 
-Action.$inject = ['$http'];
+Action.$inject = ['$http', '$location'];
 
-function Action($http) {
+function Action($http, $location) {
 
     if($location.host().indexOf("localhost") > -1) var root = 'http://localhost:1337';
     else var root = 'http://www.momentum.build';

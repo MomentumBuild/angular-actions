@@ -1,0 +1,45 @@
+module.exports = function(type) { 
+
+console.log('app/**/'+type+'-*.less');
+
+  if(type === "base") less = [
+    "bower_components/base/less/base.less",
+    // "bower_components/base/less/desktop.less",
+    // "bower_components/base/less/tablet.less",
+    // "bower_components/base/less/mobile.less",
+    'app/**/'+type+'-*.less'
+  ];
+  else less = [
+    //'bower_components/ionicons/css/ionicons.min.css',
+    //'bower_components/animate.css/animate.min.css',
+    'bower_components/bootstrap/less/*.less',
+    'app/**/'+type+'-*.less',
+  ];
+
+  return {
+    scripts: [
+      'bower_components/angular/angular.min.js', 
+      'bower_components/ng-lodash/build/ng-lodash.min.js', 
+      '../../dist/actions.js', 
+      '../../dist/actions-tpl.js', 
+      // 'bower_components/angular-animate/angular-animate.min.js',
+      // 'bower_components/angular-messages/angular-messages.min.js',
+      // 'bower_components/angular-resource/angular-resource.min.js',
+      // 'bower_components/angular-sanitize/angular-sanitize.min.js',
+      // 'bower_components/angular-ui-router/release/angular-ui-router.min.js',
+      // 'bower_components/angular-strap/dist/angular-strap.min.js',
+      // 'bower_components/angular-strap/dist/angular-strap.tpl.min.js',
+      // 'bower_components/satellizer/satellizer.min.js',
+      // 'bower_components/angular-loading-bar/build/loading-bar.min.js',
+      'app/app.js',
+      'app/templates.js',
+    ],
+    less: less,
+    template_index: 'app/index.jade',
+    templates: 'app/pages/**/'+type+'-*.jade',
+    root: [ '../../example/' , '../../example/', '../../example/fonts/'],
+    testing: ['../tests/api/**/*.js'],
+    fonts: ['bower_components/ionicons/fonts/*.*']
+  };
+
+}

@@ -1,4 +1,4 @@
-angular.module('actionExample', ['momentum.actions', 'ngLodash'])
+angular.module('actionExample', ['momentum.actions'])
 	// .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
 	// 	// home page

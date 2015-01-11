@@ -1,11 +1,14 @@
 extends ./_layout
 
 block body
-  //- div( ui-view )
-  include pages/petition-bootstrap
+	//- div( ui-view )
+	-if (type === 'base')
+		include pages/base-petition
+	-else 
+		include pages/bootstrap-petition
 
 block styles
-  link( href="style.css" rel="stylesheet" )
+	link( href="style.css" rel="stylesheet" )
 
 block scripts   
-  script(src="app.js")
+	script(src="app.js")
