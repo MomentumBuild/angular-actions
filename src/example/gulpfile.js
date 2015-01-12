@@ -13,7 +13,6 @@ var $ = require('gulp-load-plugins')({
 // Create process
 require('./gulp/create')(gulp, vars, $, args);
 
-
 // Default process
 require('./gulp/clean')(gulp, vars, $, args);
 require('./gulp/less')(gulp, vars, $, args);
@@ -22,10 +21,8 @@ require('./gulp/templates')(gulp, vars, $, args);
 // require('./gulp/fonts')(gulp, vars, $, args);
 // require('./gulp/testing')(gulp, vars, $, args);
 
-
 // Rerun the task when a file changes
 require('./gulp/watch')(gulp, vars, $, args);
-
 
 // Tasks
 gulp.task('create', ['clean-vars', 'move-vars', 'clean-templates', 'move-less', 'move-jade']);

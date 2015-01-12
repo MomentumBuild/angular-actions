@@ -11,7 +11,7 @@ module.exports = function(gulp, vars, $, args) {
 	};
 
 	var err = new $.util.PluginError({
-	  plugin: 'clean-templates',
+	  plugin: 'clean-vars',
 	  message: 'You need to use both style and type. For example: gulp create --type petition --style base',
 	  showStack: true
 	});
@@ -29,7 +29,7 @@ module.exports = function(gulp, vars, $, args) {
 
 	gulp.task('clean-templates', function () {  
 	 	gulp.src(root.dest, {read: false})
-	 		.pipe(args.style !== undefined && args.type !== undefined ? $.clean({force: true}) : err);
+	 		.pipe($.clean({force: true}));
 	});
 
 	gulp.task('move-less', function() {
