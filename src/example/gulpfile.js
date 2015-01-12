@@ -11,7 +11,13 @@ var $ = require('gulp-load-plugins')({
 
 var vars = require('./gulp/vars')(args.base ? 'base' : 'bootstrap');
 
+// Clean folders
 require('./gulp/clean')(gulp, vars, $, args);
+
+// Move templates into pages folder
+require('./gulp/create')(gulp, vars, $, args);
+
+// Basic site compilation
 require('./gulp/less')(gulp, vars, $);
 require('./gulp/scripts')(gulp, vars, $);
 require('./gulp/templates')(gulp, vars, $, args);
@@ -24,4 +30,6 @@ gulp.task('watch', function() {
 });
 
 
-gulp.task('default', ['clean', 'templates', 'template_index', 'scripts', 'less', 'watch']);
+gulp.task('default', ['clean', 'templates', 'index', 'scripts', 'less', 'watch']);
+
+gulp.task('create', ['clean-create', 'create']);

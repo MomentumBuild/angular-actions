@@ -8,7 +8,6 @@
 			.actionItem(ng-repeat="a in Feed.actions | orderBy:'-createdAt'")
 				p <b>{{ a.first_name }} said</b> {{ a.message}}
 					small.clearfix at {{ a.createdAt | date : 'medium' }}
-
 		//- example-feed(campaign-id="48" action-id="42" action="petition")
 
 
@@ -23,5 +22,5 @@
 				input(type="number" ng-model="Form.newAction.postcode" ng-required="true" placeholder="Postcode")
 				textarea(ng-model="Form.newAction.message" ng-required="true" placeholder="Leave them a message!")
 				input(type="hidden" ng-model="Form.newAction.voted" ng-value="true")
-				button.button-primary Vote Yes!
+				button.primary Vote Yes!
 		//- example-form(campaign-id="48" action-id="42" action="petition") 

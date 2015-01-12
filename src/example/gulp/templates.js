@@ -1,6 +1,6 @@
 module.exports = function(gulp, vars, $, args) {
 
-	gulp.task('template_index', function() {
+	gulp.task('index', function() {
 	  gulp.src(vars.template_index)
 	    .pipe($.jade({ pretty: true, locals: args}))
 	    .pipe($.htmlify())

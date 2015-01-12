@@ -2,7 +2,7 @@ extends ./_layout
 
 block body
 	//- div( ui-view )
-	-if (type === 'base')
+	-if (locals.base)
 		include pages/base-petition
 	-else 
 		include pages/bootstrap-petition

@@ -7,13 +7,13 @@ console.log('app/**/'+type+'-*.less');
     // "bower_components/base/less/desktop.less",
     // "bower_components/base/less/tablet.less",
     // "bower_components/base/less/mobile.less",
-    'app/**/'+type+'-*.less'
+    'app/**/*.less'
   ];
   else less = [
     //'bower_components/ionicons/css/ionicons.min.css',
     //'bower_components/animate.css/animate.min.css',
     'bower_components/bootstrap/less/*.less',
-    'app/**/'+type+'-*.less',
+    'app/**/*.less',
   ];
 
   return {
@@ -36,8 +36,8 @@ console.log('app/**/'+type+'-*.less');
     ],
     less: less,
     template_index: 'app/index.jade',
-    templates: 'app/pages/**/'+type+'-*.jade',
-    root: [ '../../example/' , '../../example/', '../../example/fonts/'],
+    templates: 'app/pages/**/*.jade',
+    root: '../../example/',
     testing: ['../tests/api/**/*.js'],
     fonts: ['bower_components/ionicons/fonts/*.*']
   };
