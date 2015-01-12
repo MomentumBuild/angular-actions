@@ -4,7 +4,7 @@ module.exports = function(gulp, vars, $, args) {
 	  gulp.src(vars.template_index)
 	    .pipe($.jade({ pretty: true, locals: args}))
 	    .pipe($.htmlify())
-	    .pipe(gulp.dest('../../example/'));
+	    .pipe(gulp.dest(vars.root));
 	});
 
 	gulp.task('templates', function() {

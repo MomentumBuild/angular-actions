@@ -2,10 +2,7 @@ extends ./_layout
 
 block body
 	//- div( ui-view )
-	-if (locals.base)
-		include pages/base-petition
-	-else 
-		include pages/bootstrap-petition
+	include pages/action
 
 block styles
 	link( href="style.css" rel="stylesheet" )

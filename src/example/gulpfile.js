@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var path = require('path');
 var args = require('yargs').argv;
-
+var vars = require('./gulp/vars')(args.type);
 var $ = require('gulp-load-plugins')({
   rename: {
     'gulp-angular-templatecache': 'templateCache',
@@ -9,27 +9,24 @@ var $ = require('gulp-load-plugins')({
   }
 });
 
-var vars = require('./gulp/vars')(args.base ? 'base' : 'bootstrap');
 
-// Clean folders
-require('./gulp/clean')(gulp, vars, $, args);
-
-// Move templates into pages folder
+// Create process
 require('./gulp/create')(gulp, vars, $, args);
 
-// Basic site compilation
-require('./gulp/less')(gulp, vars, $);
-require('./gulp/scripts')(gulp, vars, $);
+
+// Default process
+require('./gulp/clean')(gulp, vars, $, args);
+require('./gulp/less')(gulp, vars, $, args);
+require('./gulp/scripts')(gulp, vars, $, args);
 require('./gulp/templates')(gulp, vars, $, args);
 // require('./gulp/fonts')(gulp, vars, $, args);
 // require('./gulp/testing')(gulp, vars, $, args);
 
+
 // Rerun the task when a file changes
-gulp.task('watch', function() {
-  gulp.watch([ vars.less, vars.scripts[2], vars.scripts[3], vars.scripts[4], vars.templates, '*.jade' ], [ 'templates', 'template_index', 'less', 'scripts']);
-});
+require('./gulp/watch')(gulp, vars, $, args);
 
 
+// Tasks
+gulp.task('create', ['clean-templates', 'move-less', 'move-jade']);
 gulp.task('default', ['clean', 'templates', 'index', 'scripts', 'less', 'watch']);
-
-gulp.task('create', ['clean-create', 'create']);
