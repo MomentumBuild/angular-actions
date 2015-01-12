@@ -1,19 +1,5 @@
 module.exports = function(type) { 
 
-  if(type === "base") less = [
-    "bower_components/base/less/base.less",
-    // "bower_components/base/less/desktop.less",
-    // "bower_components/base/less/tablet.less",
-    // "bower_components/base/less/mobile.less",
-    'app/**/*.less'
-  ];
-  else less = [
-    //'bower_components/ionicons/css/ionicons.min.css',
-    //'bower_components/animate.css/animate.min.css',
-    'bower_components/bootstrap/less/*.less',
-    'app/**/*.less',
-  ];
-
   return {
     scripts: [
       'bower_components/angular/angular.min.js', 
@@ -32,7 +18,12 @@ module.exports = function(type) {
       'app/app.js',
       'app/templates.js',
     ],
-    less: less,
+    less: [
+      //'bower_components/ionicons/css/ionicons.min.css',
+      //'bower_components/animate.css/animate.min.css',
+      'bower_components/bootstrap/less/*.less',
+      'app/**/*.less',
+    ],
     template_index: 'app/index.jade',
     templates: 'app/pages/**/*.jade',
     root: '../../example/',

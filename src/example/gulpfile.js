@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var path = require('path');
 var args = require('yargs').argv;
-var vars = require('./gulp/vars')(args.type);
+var vars = require('./gulp/vars');
 var $ = require('gulp-load-plugins')({
   rename: {
     'gulp-angular-templatecache': 'templateCache',
@@ -28,5 +28,5 @@ require('./gulp/watch')(gulp, vars, $, args);
 
 
 // Tasks
-gulp.task('create', ['clean-templates', 'move-less', 'move-jade']);
+gulp.task('create', ['clean-vars', 'move-vars', 'clean-templates', 'move-less', 'move-jade']);
 gulp.task('default', ['clean', 'templates', 'index', 'scripts', 'less', 'watch']);

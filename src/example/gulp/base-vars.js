@@ -1,5 +1,5 @@
-module.exports = function(type) { 
-  
+module.exports = function() { 
+
   return {
     scripts: [
       'bower_components/angular/angular.min.js', 

@@ -1,4 +1,4 @@
-module.exports = function(type) { 
+module.exports = function() { 
 
   return {
     scripts: [
