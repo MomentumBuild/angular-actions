@@ -10,7 +10,7 @@ var $ = require('gulp-load-plugins')({
 });
 
 // List process
-require('./gulp/list')(gulp, vars, $, args);
+// require('./gulp/list')(gulp, vars, $, args);
 
 // Create process
 require('./gulp/create')(gulp, vars, $, args);
@@ -28,6 +28,6 @@ require('./gulp/watch')(gulp, vars, $, args);
 
 // Tasks
 gulp.task('create', ['clean-vars', 'move-vars', 'clean-templates', 'move-less', 'move-jade']);
-gulp.task('campaigns', ['list-campaigns']);
+// gulp.task('campaigns', ['list-campaigns']);
 gulp.task('default', ['clean', 'templates', 'index', 'scripts', 'less', 'watch']);
 
