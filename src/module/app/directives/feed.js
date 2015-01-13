@@ -13,7 +13,8 @@ function actionsFeed() {
       campaignId: "@",
       actionId: "@",
       action: "@",
-      template: "@"
+      template: "@",
+      server: "@"
     },  
     link: link
   };

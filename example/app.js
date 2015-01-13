@@ -272,8 +272,8 @@ function actionsCtrl( $scope, Action, $rootScope ) {
     var vm = this;
 
     vm.feed = function() {
-      console.log(vm.action, vm.campaignId, vm.actionId);
-      Action.feed(vm.campaignId, vm.actionId)
+      console.log(vm.server, vm.campaignId, vm.actionId);
+      Action.feed(vm.server, vm.campaignId, vm.actionId)
         .success(function(data) {
           console.log(data);
           vm.actions = data;
@@ -281,8 +281,8 @@ function actionsCtrl( $scope, Action, $rootScope ) {
     }
 
     vm.create = function() {
-      console.log(vm.action, vm.actionId, vm.newAction);
-      Action.create(vm.action, vm.actionId, vm.newAction)
+      console.log(vm.server, vm.action, vm.actionId, vm.newAction);
+      Action.create(vm.server, vm.action, vm.actionId, vm.newAction)
         .success(function(data) {
           console.log(data);
           $rootScope.$broadcast('newAction', data);
@@ -303,9 +303,6 @@ Action.$inject = ['$http', '$location'];
 
 function Action($http, $location) {
 
-    if($location.host().indexOf("localhost") > -1) var root = 'http://localhost:1337';
-    else var root = 'http://www.momentum.build';
-
     return {
       info: info,
       create: create,
@@ -314,16 +311,16 @@ function Action($http, $location) {
       // all: all
     };
 
-    function info(campaignId, actionId) {
-        return $http.get(root + '/campaign/' + campaignId + '/action/' + actionId);
+    function info(server, campaignId, actionId) {
+        return $http.get(server + '/campaign/' + campaignId + '/action/' + actionId);
     }
 
-    function create(action, actionId, record) {
-        return $http.post(root + '/' + action + '/' + actionId, record);
+    function create(server, action, actionId, record) {
+        return $http.post(server + '/' + action + '/' + actionId, record);
     }
 
-    function feed(campaignId, actionId) {
-        return $http.get(root + '/campaign/' + campaignId + '/action/' + actionId + '/feed');
+    function feed(server, campaignId, actionId) {
+        return $http.get(server + '/campaign/' + campaignId + '/action/' + actionId + '/feed');
     }
 
     // function campaign(id) {
@@ -407,7 +404,8 @@ function actionsFeed() {
       campaignId: "@",
       actionId: "@",
       action: "@",
-      template: "@"
+      template: "@",
+      server: "@"
     },  
     link: link
   };
@@ -442,7 +440,8 @@ function actionsForm() {
     scope: {
       actionId: "@",
       action: "@",
-      template: "@"
+      template: "@",
+      server: "@"
     }, 
     link: link
   };

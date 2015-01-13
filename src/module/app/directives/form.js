@@ -12,7 +12,8 @@ function actionsForm() {
     scope: {
       actionId: "@",
       action: "@",
-      template: "@"
+      template: "@",
+      server: "@"
     }, 
     link: link
   };
