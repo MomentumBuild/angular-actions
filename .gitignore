@@ -1,4 +1,4 @@
 node_modules/
 bower_components/
-src/example/
-src/module/node_modules/
+./src/example/
+./src/module/node_modules/
