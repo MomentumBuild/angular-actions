@@ -59,7 +59,7 @@ function Action($http, $location) {
     }
 
     function feed(server, campaignId, actionId) {
-        return $http.get(server + '/campaign/' + campaignId + '/action/' + actionId + '/feed');
+        return $http.get(server + '/campaign/' + campaignId + '/action/' + actionId + '/public');
     }
 
     // function campaign(id) {
